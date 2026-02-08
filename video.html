@@ -2,41 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Watching | StreamLine</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="watch-page">
-    <nav><a href="index.html" class="logo-link"><h1>StreamLine</h1></a></nav>
-
     <div class="watch-container">
         <a href="index.html" class="back-btn">← Back to Library</a>
         
-        <div class="video-wrapper">
-            <video id="mainVideo" controls autoplay>
+        <div class="video-container" id="videoContainer">
+            <video id="mainVideo">
                 <source src="" type="video/mp4">
             </video>
+
+            <div class="custom-controls">
+                <div class="progress-area" id="progressArea">
+                    <div class="progress-bar" id="progressBar">
+                        <div class="scrubber"></div>
+                    </div>
+                </div>
+                
+                <div class="controls-main">
+                    <div class="left-side">
+                        <button id="playPause">▶</button>
+                        <span class="time-display" id="timeDisplay">0:00 / 0:00</span>
+                    </div>
+                    <div class="right-side">
+                        <button id="muteBtn">🔊</button>
+                        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+                        <button id="fullScreen">⛶</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="video-info">
-            <h1 id="videoTitle">Loading Movie...</h1>
+            <h1 id="videoTitle"></h1>
             <p id="videoDescription"></p>
         </div>
     </div>
 
     <script>
-        // Get movie details from the URL
-        const params = new URLSearchParams(window.location.search);
-        const file = params.get('file');
-        const title = params.get('title');
-        const desc = params.get('desc');
+        const video = document.getElementById('mainVideo');
+        const playBtn = document.getElementById('playPause');
+        const progArea = document.getElementById('progressArea');
+        const progBar = document.getElementById('progressBar');
+        const timeDisp = document.getElementById('timeDisplay');
+        const volume = document.getElementById('volumeSlider');
 
-        if (file) {
-            document.getElementById('mainVideo').src = decodeURIComponent(file);
-            document.getElementById('videoTitle').innerText = decodeURIComponent(title);
-            document.getElementById('videoDescription').innerText = decodeURIComponent(desc);
-        } else {
-            document.getElementById('videoTitle').innerText = "Video not found.";
+        const params = new URLSearchParams(window.location.search);
+        video.src = decodeURIComponent(params.get('file'));
+        document.getElementById('videoTitle').innerText = decodeURIComponent(params.get('title'));
+        document.getElementById('videoDescription').innerText = decodeURIComponent(params.get('desc'));
+
+        playBtn.onclick = () => {
+            if (video.paused) { video.play(); playBtn.innerText = "⏸"; }
+            else { video.pause(); playBtn.innerText = "▶"; }
+        };
+
+        video.ontimeupdate = () => {
+            const percentage = (video.currentTime / video.duration) * 100;
+            progBar.style.width = percentage + "%";
+            timeDisp.innerText = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
+        };
+
+        progArea.onclick = (e) => {
+            const coord = (e.offsetX / progArea.offsetWidth);
+            video.currentTime = coord * video.duration;
+        };
+
+        volume.oninput = (e) => video.volume = e.target.value;
+
+        document.getElementById('fullScreen').onclick = () => {
+            if (!document.fullscreenElement) document.getElementById('videoContainer').requestFullscreen();
+            else document.exitFullscreen();
+        };
+
+        function formatTime(t) {
+            let m = Math.floor(t / 60);
+            let s = Math.floor(t % 60);
+            return `${m}:${s < 10 ? '0' : ''}${s}`;
         }
     </script>
 </body>
