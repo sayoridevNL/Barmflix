@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Watching | StreamLine</title>
+    <title>Watch Now | Barmflix</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="watch-page">
+<body>
     <div class="watch-container">
-        <a href="index.html" class="back-btn">← Back to Library</a>
+        <h1 id="logo-color">Barmflix</h1>
+        <a href="index.html" class="back-btn">← Back to Browse</a>
         
         <div class="video-container" id="videoContainer">
             <video id="mainVideo">
                 <source src="" type="video/mp4">
             </video>
 
-            <div class="custom-controls">
+            <div class="custom-controls" id="controls">
                 <div class="progress-area" id="progressArea">
                     <div class="progress-bar" id="progressBar">
                         <div class="scrubber"></div>
@@ -34,8 +35,8 @@
             </div>
         </div>
 
-        <div class="video-info">
-            <h1 id="videoTitle" style="color: #00ff41;"></h1>
+        <div class="video-info" style="margin-top: 30px;">
+            <h1 id="videoTitle" style="font-size: 2.5rem; margin-bottom: 10px;"></h1>
             <p id="videoDescription"></p>
         </div>
     </div>
@@ -43,10 +44,11 @@
     <script>
         const video = document.getElementById('mainVideo');
         const playBtn = document.getElementById('playPause');
-        const progArea = document.getElementById('progressArea');
         const progBar = document.getElementById('progressBar');
+        const progArea = document.getElementById('progressArea');
         const timeDisp = document.getElementById('timeDisplay');
         const volume = document.getElementById('volumeSlider');
+        const controls = document.getElementById('controls');
 
         const params = new URLSearchParams(window.location.search);
         video.src = decodeURIComponent(params.get('file'));
@@ -57,23 +59,19 @@
             if (video.paused) { video.play(); playBtn.innerText = "⏸"; }
             else { video.pause(); playBtn.innerText = "▶"; }
         }
-
         playBtn.onclick = togglePlay;
         video.onclick = togglePlay;
 
-        window.addEventListener('keydown', (e) => {
-            if (e.code === "Space") { e.preventDefault(); togglePlay(); }
-        });
+        window.onkeydown = (e) => { if (e.code === "Space") { e.preventDefault(); togglePlay(); } };
 
         video.ontimeupdate = () => {
-            const percentage = (video.currentTime / video.duration) * 100;
-            progBar.style.width = percentage + "%";
-            timeDisp.innerText = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
+            const p = (video.currentTime / video.duration) * 100;
+            progBar.style.width = p + "%";
+            timeDisp.innerText = format(video.currentTime) + " / " + format(video.duration);
         };
 
         progArea.onclick = (e) => {
-            const coord = (e.offsetX / progArea.offsetWidth);
-            video.currentTime = coord * video.duration;
+            video.currentTime = (e.offsetX / progArea.offsetWidth) * video.duration;
         };
 
         volume.oninput = (e) => video.volume = e.target.value;
@@ -83,7 +81,7 @@
             else document.exitFullscreen();
         };
 
-        function formatTime(t) {
+        function format(t) {
             let m = Math.floor(t / 60);
             let s = Math.floor(t % 60);
             return `${m}:${s < 10 ? '0' : ''}${s}`;
