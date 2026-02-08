@@ -189,3 +189,79 @@ input[type="range"] {
     padding: 0;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
+
+/* --- Mobile Responsive Styling --- */
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 20px;
+    }
+
+    nav h1 {
+        font-size: 1.5rem !important;
+        margin-left: 0 !important;
+        text-align: center;
+    }
+
+    .container {
+        padding: 0 15px 30px;
+    }
+
+    /* Change horizontal cards to vertical stacks */
+    .movie-card {
+        flex-direction: column;
+        border-radius: 12px;
+    }
+
+    .movie-card img {
+        width: 100%; /* Image takes full width of the screen */
+        height: 250px; /* Shorter height to avoid too much scrolling */
+        object-fit: cover;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    .card-content h3 {
+        font-size: 1.4rem;
+    }
+
+    .card-content p {
+        font-size: 0.95rem;
+        /* Limits description to 3 lines on mobile to keep it clean */
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* Video Player Mobile Adjustments */
+    .watch-container {
+        margin: 10px auto;
+        padding: 0 10px;
+    }
+
+    .custom-controls {
+        padding: 12px;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+    }
+
+    /* Make buttons and sliders easier to touch */
+    button {
+        font-size: 20px;
+    }
+
+    input[type="range"] {
+        width: 80px; /* Smaller volume slider for narrow screens */
+    }
+
+    .time-display {
+        font-size: 0.75rem;
+    }
+
+    .video-info h1 {
+        font-size: 1.8rem !important;
+    }
+}
