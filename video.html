@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watching | StreamLine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="watch-page">
+    <nav><a href="index.html" class="logo-link"><h1>StreamLine</h1></a></nav>
+
+    <div class="watch-container">
+        <a href="index.html" class="back-btn">← Back to Library</a>
+        
+        <div class="video-wrapper">
+            <video id="mainVideo" controls autoplay>
+                <source src="" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-info">
+            <h1 id="videoTitle">Loading Movie...</h1>
+            <p id="videoDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        // Get movie details from the URL
+        const params = new URLSearchParams(window.location.search);
+        const file = params.get('file');
+        const title = params.get('title');
+        const desc = params.get('desc');
+
+        if (file) {
+            document.getElementById('mainVideo').src = decodeURIComponent(file);
+            document.getElementById('videoTitle').innerText = decodeURIComponent(title);
+            document.getElementById('videoDescription').innerText = decodeURIComponent(desc);
+        } else {
+            document.getElementById('videoTitle').innerText = "Video not found.";
+        }
+    </script>
+</body>
+</html>

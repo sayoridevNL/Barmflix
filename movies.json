@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Big Buck Bunny",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_small.jpg/300px-Big_buck_bunny_poster_small.jpg",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    "description": "A giant, friendly rabbit deals with three mischievous squirrels in this classic open-source short film."
+  },
+  {
+    "title": "Elephant's Dream",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Elephants_Dream_s2_proog.jpg/300px-Elephants_Dream_s2_proog.jpg",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    "description": "A surreal journey through a mechanical world, exploring the relationship between two characters."
+  },
+  {
+    "title": "Tears of Steel",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Tears_of_Steel_poster.jpg/300px-Tears_of_Steel_poster.jpg",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+    "description": "A sci-fi short set in a future Amsterdam where a group of warriors and scientists try to save the world."
+  }
+]
