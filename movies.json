@@ -1,20 +1,32 @@
 [
   {
     "title": "Big Buck Bunny",
-    "thumbnail": "https://media.discordapp.net/attachments/1049396166963511430/1470147508532674721/cc386f2f-802d-48d2-b235-031af507af27.png?ex=698a3d10&is=6988eb90&hm=927fe7c572918ec507cabf1fed403e2e1c8a364808fd303c3c79cfe2d2dbcf11&=&format=webp&quality=lossless&width=1285&height=964",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Big_buck_bunny_poster_big.jpg",
     "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
     "description": "A giant, friendly rabbit deals with three mischievous squirrels in this classic open-source short film."
   },
   {
     "title": "Elephant's Dream",
-    "thumbnail": "https://cdn.discordapp.com/attachments/1139275773186937022/1466403483191218329/quote_1466403461481500773.png?ex=6989cd2a&is=69887baa&hm=8939b00fa27f0577779a8863b30b7c1c3b034a544d1f4689a5a9401133b0dcbf&",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/ElephantsDreamPoster.jpg/960px-ElephantsDreamPoster.jpg",
     "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
     "description": "A surreal journey through a mechanical world, exploring the relationship between two characters."
   },
   {
     "title": "Tears of Steel",
-    "thumbnail": "https://media.discordapp.net/attachments/1141724083977977897/1469695837197172933/6e3e025b-6b59-4583-ac01-5d072e4533e8.jpg?ex=6989e9e9&is=69889869&hm=50172817e1cd30a9f4b087e4cddb73ce3f5cd3005bcc764d3c32e3f79b870f89&=&format=webp&width=723&height=964",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/7/70/Tos-poster.png",
     "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
     "description": "A sci-fi short set in a future Amsterdam where a group of warriors and scientists try to save the world."
+  },
+  {
+    "title": "Shrek",
+    "thumbnail": "https://cdn.nieuwdezeweek.nl/media/cache/68/39/683925a46c69e874f7e5de2bd44e29f1.jpg",
+    "videoUrl": "https://cdn.discordapp.com/attachments/722404331114070057/960253791339425802/video0-17.mp4?ex=698a3008&is=6988de88&hm=84fa06d57e24da9e0d1e62147194d751e3f8e95b212fb397b41bac44792df426&",
+    "description": "An animated film about an ogre named Shrek who embarks on a quest to rescue Princess Fiona."
+  },
+  {
+    "title": "Bee movie",
+    "thumbnail": "https://m.media-amazon.com/images/S/pv-target-images/c4cf01cfc74acc4ddb0d57d73240c760908d341b863e403f08e00c465ba5160e.jpg",
+    "videoUrl": "https://cdn.discordapp.com/attachments/1143427039890767924/1469731587259236392/bie.mp4?ex=698a0b34&is=6988b9b4&hm=8b8315cd01f906e96f57c88085321b20cc7f68538a66239c026d36dc151c4594&",
+    "description": "An animated comedy about a bee who sues the human race for exploiting bees."
   }
 ]
